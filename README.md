@@ -23,7 +23,7 @@ Ao rodar `npx create-expo-app`, você terá uma estrutura básica como:
 ## 📦 Comandos úteis
 
 ```bash
-npx create-expo-app meuApp
+npx create-expo-app@latest -t
 npx expo start           # Inicia o servidor local
 npm run android          # Abre o app no emulador Android
 npx expo install pacote  # Instala bibliotecas com suporte do Expo
