@@ -1,0 +1,23 @@
+PPDM (Programação para dispositivos móveis)
+
+- Java; “No passado, dominava antigamente “
+- Kotlin; 
+- Flutter;
+- React Native [JS];
+
+
+EXPO
+Npx create-expo-app@latest -t ou –templete
+Npx expo start	
+npx expo install react-dom react-native-web @expo/metro-runtime
+
+Npm run android
+
+
+AULAS
+
+Pend TSOF - Paiva
+PPDM - Rogério
+ITCOI - Claisson
+PSOF - Estevão
+PEND PPDM - Rogério
