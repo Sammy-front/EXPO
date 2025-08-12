@@ -49,4 +49,8 @@ export const styles = StyleSheet.create({
             height: '100%'
         },
 
-})
+        img: {
+            width: 200,
+            height: 300,
+        }
+})  

@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, Image, View } from 'react-native';
 import { styles } from './styles.js';
 
 function botao(cor){
@@ -19,7 +19,7 @@ export default function App() {
 
       <View style= {styles.ladoalado}>
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /></TouchableOpacity>
         </View>
         <View style= {styles.areaInterna}>
           <TouchableOpacity style= {styles.botao2} onPress={() => botao(styles.botao2.backgroundColor)}></TouchableOpacity>
