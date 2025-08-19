@@ -32,7 +32,7 @@ export default function App() {
       />
 
       <TouchableOpacity>
-        
+        d
       </TouchableOpacity>
 
     </View>
