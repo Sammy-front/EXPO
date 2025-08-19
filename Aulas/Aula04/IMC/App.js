@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from './styles.js';
 
 export default function App() {
@@ -31,7 +31,10 @@ export default function App() {
         keyboardType="numeric"
       />
 
-      
+      <TouchableOpacity>
+        
+      </TouchableOpacity>
+
     </View>
   );
 }
