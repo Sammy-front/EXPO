@@ -19,10 +19,10 @@ export default function App() {
 
       <View style= {styles.ladoalado}>
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View>
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao2} onPress={() => botao(styles.botao2.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao2} onPress={() => botao(styles.botao2.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View>
       </View>
 
@@ -31,11 +31,11 @@ export default function App() {
        <View style= {styles.ladoalado}>
 
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao3} onPress={() => botao(styles.botao3.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao3} onPress={() => botao(styles.botao3.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View>
 
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao4} onPress={() => botao(styles.botao4.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao4} onPress={() => botao(styles.botao4.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View>
 
       </View>
@@ -45,14 +45,14 @@ export default function App() {
       <View style= {styles.ladoalado}>
 
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao5} onPress={() => botao(styles.botao5.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao5} onPress={() => botao(styles.botao5.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View>
 
 
 
 
         <View style= {styles.areaInterna}>
-          <TouchableOpacity style= {styles.botao6} onPress={() => botao(styles.botao6.backgroundColor)}></TouchableOpacity>
+          <TouchableOpacity style= {styles.botao6} onPress={() => botao(styles.botao6.backgroundColor)}> <Image source={require ('./img/linuxSamuel.png')} style={styles.img} /> </TouchableOpacity>
         </View> 
 
        </View> 
