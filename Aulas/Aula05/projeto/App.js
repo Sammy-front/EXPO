@@ -1,24 +1,20 @@
 import { TouchableOpacity, Text, View } from 'react-native';
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import { styles } from './styles.js';
-
-
-
-
 
 export default function App() {
   const [corSelecionada, setCorSelecionada] = useState(null)
 
   function botao(cor) {
-    const hex = cor.replece('#', '')
+    const hex = cor.replace('#', '')
     console.log(hex)
     alert(hex)
 
     fetch(`https://www.thecolorapi.com/id?hex=${hex}`)
       .then((res) => res.json())
       .then((data) => {
-        setCorSelecionada(data.name.valor)
-        console.log(data.name.valor);
+        setCorSelecionada(data.name.value)
+        console.log(data.name.value);
       })
       .catch((err) => {
         console.log("Erro", err);
@@ -32,7 +28,13 @@ export default function App() {
       <View style={styles.ladoalado}>
 
         <View style={styles.areaInterna}>
-          <TouchableOpacity style={styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}><Text>a</Text></TouchableOpacity>
+            { corSelecionada && (
+          <TouchableOpacity style={styles.botao1} onPress={() => botao(styles.botao1.backgroundColor)}>
+
+              <Text>a</Text>
+
+          </TouchableOpacity>
+            )}
         </View>
 
 
