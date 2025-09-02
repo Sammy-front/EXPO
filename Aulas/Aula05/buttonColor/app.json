@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "projeto2",
-    "slug": "projeto2",
+    "name": "buttonColor",
+    "slug": "buttonColor",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
