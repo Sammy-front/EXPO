@@ -1,56 +1,96 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    ladoalado: {
-        flex: 1,
-        flexDirection: 'row'
-    },
-    areaInterna: {
-        flex: 1
-    },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  ladoalado: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  areaInterna: {
+    flex: 1,
+  },
 
+  botao1: {
+    backgroundColor: "#00a849ff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  botao2: {
+    backgroundColor: "#44f9ff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  botao3: {
+    backgroundColor: "#355e75ff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  botao4: {
+    backgroundColor: "#d37b17ff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  botao5: {
+    backgroundColor: "#552d57ff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  botao6: {
+    backgroundColor: "#ffff6cff",
+    width: 160,
+    height: 60,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
 
-        
-        botao1: {
-            backgroundColor: '#25df77',
-            width: '100%',
-            height: '100%'
-        },
-        botao2: {
-            backgroundColor: '#44f9',
-            width: '100%',
-            height: '100%'
-        },
-    
-        botao3: {
-            backgroundColor: '#12aaff',
-            width: '100%',
-            height: '100%'
-        },
-    
-        botao4: {
-            backgroundColor: '#17ffff',
-            width: '100%',
-            height: '100%'
-        },
-    
-        botao5: {
-            backgroundColor: '#fa9fff',
-            width: '100%',
-            height: '100%'
-        },
-    
-        botao6: {
-            backgroundColor: '#ffffa1',
-            width: '100%',
-            height: '100%'
-        },
-
-        img: {
-            width: 200,
-            height: 300,
-        }
-})  
+  caixaTexto: {
+    backgroundColor: "#222",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "85%",
+  },
+  textoCor: {
+    color: "#fff",
+    fontSize: 16,
+    marginBottom: 6,
+    textAlign: "center",
+  },
+  botaoLimpar: {
+    backgroundColor: "red",
+    paddingVertical: 8,
+    paddingHorizontal: 18,
+    borderRadius: 6,
+    marginTop: 6,
+  },
+});
