@@ -44,18 +44,3 @@ Depois, crie suas páginas na pasta `screens/` e use um *navigator* no `App.js`.
 ---
 
 Expo simplifica o desenvolvimento mobile, permitindo que você foque no que importa: **construir seu app**.
-
-
-
-
-
-
-unsplash - Banco de Imagem - https://unsplash.com/pt-br
-
-popsy - Icons|Ilustration: https://popsy.co/
-
-originui - Blocks|Components: https://originui.com/
-
-Coletania de Blocks: https://github.com/birobirobiro/awesome-shadcn-ui
-
-Coletania de Blocks-v2: https://github.com/ekmas/awesome-shadcn-ui-v2
