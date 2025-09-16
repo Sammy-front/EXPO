@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function Tela2() {
   return (
     <View style={styles.container}>
       <Text>Tela principal</Text>

@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
+export default function Tela3() {
+  function voltar() {
+    navigator.navigate('')
+  }
+  
+    return (
     <View style={styles.container}>
       <Text>Tela principal</Text>
     </View>
