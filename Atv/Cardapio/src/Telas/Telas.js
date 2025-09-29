@@ -35,7 +35,7 @@ export default function Tela1({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffd7baff',
+    backgroundColor: '#ffe2cdff',
     flex: 1,
     alignItems: 'center',
   },

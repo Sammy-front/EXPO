@@ -2,27 +2,27 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react
 
 export default function France({ navigation }) {
   const comidas = [
-    { id: '1', nome: 'Croissant', img: require('../assets/Food_France/clafoutis.jpg') },
-    { id: '2', nome: 'Baguette', img: require('../assets/Food_France/cremeBrule.jpg') },
-    { id: '3', nome: 'Quiche', img: require('../assets/Food_France/crepe.jpg') },
-    { id: '4', nome: 'Macaron', img: require('../assets/Food_France/eclair.jpg') },
-    { id: '5', nome: 'Crêpe', img: require('../assets/Food_France/ilesFlottantes.jpg') },
-    { id: '6', nome: 'Soupe à l’oignon', img: require('../assets/Food_France/macarons.jpg') },
-    { id: '7', nome: 'Ratatouille', img: require('../assets/Food_France/madeleine.jpg') },
-    { id: '8', nome: 'Madeleine', img: require('../assets/Food_France/milFolhas.jpg') },
-    { id: '9', nome: 'Éclair', img: require('../assets/Food_France/profiteroles.jpg') },
-    { id: '10', nome: 'Coq au Vin', img: require('../assets/Food_France/tarteTartin.jpg') },
+    { id: '1', nome: 'Clafoutis', img: require('../assets/Food_France/clafoutis.jpg'), desc: 'Sobremesa francesa feita com frutas (tradicionalmente cerejas) cobertas por uma massa semelhante a flan.' },
+    { id: '2', nome: 'Crème Brûlée', img: require('../assets/Food_France/cremeBrule.jpg'), desc: 'Clássica sobremesa francesa de creme de baunilha com uma crosta crocante de açúcar caramelizado por cima.' },
+    { id: '3', nome: 'Crêpe', img: require('../assets/Food_France/crepe.jpg'), desc: 'Massa fina e leve, servida com recheios doces (chocolate, frutas) ou salgados (queijo, presunto).' },
+    { id: '4', nome: 'Éclair', img: require('../assets/Food_France/eclair.jpg'), desc: 'Doce feito com massa choux, recheado com creme (baunilha ou chocolate) e coberto com glacê.' },
+    { id: '5', nome: 'Îles Flottantes', img: require('../assets/Food_France/ilesFlottantes.jpg'), desc: 'Sobremesa de claras em neve flutuando em creme inglês, finalizada com caramelo.' },
+    { id: '6', nome: 'Macarons', img: require('../assets/Food_France/macarons.jpg'), desc: 'Pequenos doces coloridos feitos com farinha de amêndoas, crocantes por fora e macios por dentro.' },
+    { id: '7', nome: 'Madeleine', img: require('../assets/Food_France/madeleine.jpg'), desc: 'Bolinhos fofinhos em formato de concha, levemente amanteigados e aromáticos.' },
+    { id: '8', nome: 'Mil Folhas (Mille-feuille)', img: require('../assets/Food_France/milFolhas.jpg'), desc: 'Camadas de massa folhada intercaladas com creme de confeiteiro e cobertas com glacê ou açúcar.' },
+    { id: '9', nome: 'Profiteroles', img: require('../assets/Food_France/profiteroles.jpg'), desc: 'Bolinha de massa choux recheada com creme ou sorvete, geralmente servida com calda de chocolate.' },
+    { id: '10', nome: 'Tarte Tatin', img: require('../assets/Food_France/tarteTartin.jpg'), desc: 'Torta de maçã invertida caramelizada, assada com a fruta por baixo e a massa por cima.' }
   ];
 
-  function abrirDetalhe(item) {
-    alert(`Você clicou em ${item.nome}`);
-    // aqui você pode usar navigation.navigate('DetalheComida', { item });
-  }
+
+  const abrirDetalhe = (item) => {
+    navigation.navigate('FranceCard', { item });
+  };
 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.card} onPress={() => abrirDetalhe(item)}>
       <Image source={item.img} style={styles.img} />
-      <Text style={styles.text}>{item.nome}</Text>
+      <Text style={styles.text}> {item.nome} </Text>
     </TouchableOpacity>
   );
 
@@ -33,7 +33,7 @@ export default function France({ navigation }) {
         data={comidas}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        numColumns={2} // duas colunas
+        numColumns={2}
         contentContainerStyle={styles.list}
       />
     </View>
@@ -43,7 +43,7 @@ export default function France({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff5e6',
+    backgroundColor: '#ffe2cdff',
     paddingTop: 50,
   },
   title: {
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
     padding: 10,
-    elevation: 3, // sombra no Android
-    shadowColor: '#000', // sombra iOS
+    elevation: 3,
+    shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
   },
