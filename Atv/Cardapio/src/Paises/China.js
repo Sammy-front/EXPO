@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Tela2() {
-  return (
+export default function China() {
+  function voltar() {
+    navigator.navigate('')
+  }
+  
+    return (
     <View style={styles.container}>
       <Text>Tela principal</Text>
     </View>
@@ -12,7 +16,7 @@ export default function Tela2() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffee00ff',
+    backgroundColor: '#ff2222ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
