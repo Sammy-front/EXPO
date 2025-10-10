@@ -6,9 +6,9 @@ export default function ChinaCard({ route, navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>{item.nome}</Text>
+      <Text style={styles.title}> {item.nome} </Text>
       <Image source={item.img} style={styles.img} />
-      <Text style={styles.desc}>{item.desc}</Text>
+      <Text style={styles.desc}> {item.desc} </Text>
     </ScrollView>
   );
 }

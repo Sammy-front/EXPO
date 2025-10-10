@@ -8,7 +8,7 @@ export default function Main({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Navegação entre Cardapios Países</Text>
+      <Text style={styles.title}>Navegação entre Países</Text>
       <Text style={styles.text}>Clique abaixo para Navegar</Text>
 
       <View>
