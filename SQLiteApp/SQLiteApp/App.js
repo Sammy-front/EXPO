@@ -1,6 +1,6 @@
 import { SQLiteProvider } from "expo-sqlite";
-import UserForm from "./UserForm";
-import UserList from "./UserList";
+import LivroForm from "./LivroForm";
+import LivroList from "./LivroList";
 
 export default function App() {
   return (
@@ -8,22 +8,23 @@ export default function App() {
       databaseName="userDatabase2.db"
       onInit={async (db) => {
         await db.execAsync(`
-          CREATE TABLE IF NOT EXISTS users (
+          CREATE TABLE IF NOT EXISTS livros (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            firstName TEXT NOT NULL,
-            lastName TEXT NOT NULL,
-            email TEXT NOT NULL UNIQUE,
-            phone TEXT NOT NULL
+            titulo TEXT NOT NULL,
+            autor TEXT NOT NULL,
+            editora TEXT NOT NULL,
+            preco DECIMAL(10, 2) NOT NULL
           );
           PRAGMA journal_mode=WAL;
           `);
       }}
       options={{ useNewConnection: false }}
     >
-      <UserForm />
-      <UserList />
+      <LivroForm />
+      <LivroList />
     </SQLiteProvider>
   );
 }
+
 
 

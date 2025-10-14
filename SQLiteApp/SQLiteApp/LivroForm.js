@@ -2,37 +2,37 @@ import { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 
-const UserForm = () => {
+const livroForm = () => {
     const [form, setForm] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: ''
+        titulo: '',
+        autor: '',
+        editora: '',
+        preco: ''
     });
 
     const db = useSQLiteContext();
 
     const handleSubmit = async () => {
         try {            
-            if (!form.firstName || !form.lastName || !form.email || !form.phone) {
+            if (!form.titulo || !form.autor || !form.editora || !form.preco) {
                 throw new Error('Preencha todos os campos');
             }
 
             await db.runAsync(
-                'INSERT INTO users (firstName, lastName, email, phone) VALUES (?, ?, ?, ?)',
-                [form.firstName, form.lastName, form.email, form.phone]
+                'INSERT INTO users (titulo, autor, editora, preco) VALUES (?, ?, ?, ?)',
+                [form.titulo, form.autor, form.editora, form.preco]
             );
-
+            
             Alert.alert('Usuário adicionado');
             setForm({
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: ''
+                titulo: '',
+                autor: '',
+                editora: '',
+                preco: ''
             });
         } catch (error) {
             console.error(error);
-            Alert.alert('Error', error.message || 'Erro ao adicionar usuário');
+            Alert.alert('Error', error.message || 'Erro ao adicionar Livro');
         }
     };
 
@@ -40,30 +40,30 @@ const UserForm = () => {
         <View style={styles.container}>
             <TextInput
                 style={styles.input}
-                placeholder="First Name"
-                value={form.firstName}
-                onChangeText={(text) => setForm({ ...form, firstName: text })}
+                placeholder="Título"
+                value={form.titulo}
+                onChangeText={(text) => setForm({ ...form, titulo: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Last Name"
-                value={form.lastName}
-                onChangeText={(text) => setForm({ ...form, lastName: text })}
+                placeholder="Autor"
+                value={form.autor}
+                onChangeText={(text) => setForm({ ...form, autor: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Email"
-                value={form.email}
-                onChangeText={(text) => setForm({ ...form, email: text })}
+                placeholder="Editora"
+                value={form.editora}
+                onChangeText={(text) => setForm({ ...form, editora: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Phone"
-                value={form.phone}
-                onChangeText={(text) => setForm({ ...form, phone: text })}
+                placeholder="Preço"
+                value={form.preco}
+                onChangeText={(text) => setForm({ ...form, preco: text })}
             />
 
-            <Button title="Add User" onPress={handleSubmit} />
+            <Button title="Adiconar Livro" onPress={handleSubmit} />
         </View>
     );
 }
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
 }
 );
 
-export default UserForm;
+export default livroForm;
