@@ -21,7 +21,7 @@ const livroForm = () => {
             await db.runAsync(
                 'INSERT INTO users (titulo, autor, editora, preco) VALUES (?, ?, ?, ?)',
                 [form.titulo, form.autor, form.editora, form.preco]
-            );
+            )
             
             Alert.alert('Usuário adicionado');
             setForm({
