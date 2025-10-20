@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FlatList, Text, View, ActivityIndicator, RefreshControl } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 
-const UserList = () => {
+const Introducao = () => {
     const [Users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const db = useSQLiteContext();
@@ -10,8 +10,7 @@ const UserList = () => {
     const loadUsers = async () => {
         try {
             setIsLoading(true);
-            const results = await db.getAllAsync(` SELECT * FROM users
-                ORDER BY id DESC`);
+            const results = await db.getAllAsync(` SELECT * FROM users ORDER BY id DESC`);
             setUsers(results);
         } catch (error) {
             console.error("Database error", error);
@@ -47,5 +46,5 @@ const UserList = () => {
     );
 };
 
-export default UserList;
+export default Introducao;
 
