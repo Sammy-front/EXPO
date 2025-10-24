@@ -1,19 +1,43 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SQLiteProvider } from "expo-sqlite";
+
 import Home from './src/home';
-import Livraria from './src/Livraria/livraria';
-import Intruducao from './src/Livraria/introducao';
+import livraria from './src/Livraria/livraria';
+import introducao from './src/Livraria/introducao';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home}/>
-        <Stack.Screen name='Livraria' component={Livraria}/>
-        <Stack.Screen name='introdução' component={Intruducao}/>
-      </Stack.Navigator>
+      <SQLiteProvider
+        databaseName="livrosDatabase2.db"
+        onInit={async (db) => {
+          await db.execAsync(`
+                  PRAGMA journal_mode = WAL;
+                  CREATE TABLE IF NOT EXISTS livros (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    titulo TEXT NOT NULL,
+                    autor TEXT NOT NULL,
+                    editora TEXT NOT NULL,
+                    preco DECIMAL NOT NULL
+                  );
+                `);
+        }}
+      // A opção 'useNewConnection' foi removida pois é obsoleta nas versões mais recentes.
+      // Se estiver usando uma versão mais antiga do expo-sqlite que a exija, pode mantê-la.
+      >
+        {/* 
+                O Stack.Navigator gerencia as telas. Ele deve vir dentro do Provider.
+              */}
+        <Stack.Navigator>
+          <Stack.Screen name='home' component={Home} />
+          <Stack.Screen name='livraria' component={livraria} />
+          <Stack.Screen name='introdução' component={introducao} />
+          <Stack.Screen name='editar' component={eddLivros} />
+        </Stack.Navigator>
+      </SQLiteProvider>
     </NavigationContainer>
   );
 }
