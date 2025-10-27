@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert, Text, TouchableOpacity } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 
 const UserForm = () => {
@@ -13,17 +13,17 @@ const UserForm = () => {
     const db = useSQLiteContext();
 
     const handleSubmit = async () => {
-        try {            
-            if (!form.firstName || !form.lastName || !form.email || !form.phone) {
-                throw new Error('Preencha todos os campos');
+        try {
+            if (!form.firstName || !form.lastName || !form.email) {
+                throw new Error('Preencha os campos obrigatórios (Título, Autor, Gênero)');
             }
 
             await db.runAsync(
-                'INSERT INTO users (firstName, lastName, email, phone) VALUES (?, ?, ?, ?)',
+                'INSERT INTO livros (titulo, autor, genero, telefone) VALUES (?, ?, ?, ?)',
                 [form.firstName, form.lastName, form.email, form.phone]
             );
 
-            Alert.alert('Usuário adicionado');
+            Alert.alert('Sucesso', 'Livro adicionado!');
             setForm({
                 firstName: '',
                 lastName: '',
@@ -32,38 +32,41 @@ const UserForm = () => {
             });
         } catch (error) {
             console.error(error);
-            Alert.alert('Error', error.message || 'Erro ao adicionar usuário');
+            Alert.alert('Erro', error.message || 'Erro ao adicionar livro');
         }
     };
 
     return (
         <View style={styles.container}>
+            <Text style={styles.header}>Cadastrar Novo Livro</Text>
             <TextInput
                 style={styles.input}
-                placeholder="First Name"
+                placeholder="Título do Livro"
                 value={form.firstName}
                 onChangeText={(text) => setForm({ ...form, firstName: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Last Name"
+                placeholder="Autor"
                 value={form.lastName}
                 onChangeText={(text) => setForm({ ...form, lastName: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Email"
+                placeholder="Gênero"
                 value={form.email}
                 onChangeText={(text) => setForm({ ...form, email: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Phone"
+                placeholder="Telefone para contato (opcional)"
                 value={form.phone}
                 onChangeText={(text) => setForm({ ...form, phone: text })}
+                keyboardType="phone-pad"
             />
-
-            <Button title="Add User" onPress={handleSubmit} />
+            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.buttonText}>Adicionar Livro</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -74,33 +77,39 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
+        shadowOpacity: 0.1,
         shadowRadius: 3.84,
         elevation: 5,
         margin: 20,
     },
+    header: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
     input: {
-        height: 40,
-        borderColor: '#ccc',
+        height: 50,
+        borderColor: '#ddd',
         borderWidth: 1,
-        marginBottom: 10,
-        paddingHorizontal: 10,
+        marginBottom: 15,
+        paddingHorizontal: 15,
+        borderRadius: 8,
+        fontSize: 16,
     },
     button: {
-        width: '40%',
         backgroundColor: "#ffa500",
         alignItems: "center",
         justifyContent: "center",
-        margin: 15,
-        borderRadius: 10,
-        padding: 10
+        paddingVertical: 15,
+        borderRadius: 8,
+        marginTop: 10,
     },
     buttonText: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        color: "#253025",
+        color: "#fff",
     },
-}
-);
+});
 
 export default UserForm;

@@ -25,12 +25,8 @@ export default function App() {
                   );
                 `);
         }}
-      // A opção 'useNewConnection' foi removida pois é obsoleta nas versões mais recentes.
-      // Se estiver usando uma versão mais antiga do expo-sqlite que a exija, pode mantê-la.
       >
-        {/* 
-                O Stack.Navigator gerencia as telas. Ele deve vir dentro do Provider.
-              */}
+       
         <Stack.Navigator>
           <Stack.Screen name='home' component={Home} />
           <Stack.Screen name='livraria' component={livraria} />
