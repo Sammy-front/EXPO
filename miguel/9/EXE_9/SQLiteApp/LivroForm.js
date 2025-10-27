@@ -3,32 +3,41 @@ import { View, TextInput, Button, StyleSheet, Alert, Text, TouchableOpacity } fr
 import { useSQLiteContext } from 'expo-sqlite';
 
 const UserForm = () => {
+    // Estado atualizado para corresponder à tabela 'livros'
     const [form, setForm] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: ''
+        titulo: '',
+        autor: '',
+        genero: '',
+        preco: ''
     });
 
     const db = useSQLiteContext();
 
     const handleSubmit = async () => {
+        if (!form.titulo || !form.autor || !form.genero || !form.preco) {
+            Alert.alert('Atenção', 'Por favor, preencha todos os campos.');
+            return;
+        }
+
         try {
-            if (!form.firstName || !form.lastName || !form.email) {
-                throw new Error('Preencha os campos obrigatórios (Título, Autor, Gênero)');
+            const precoNumerico = parseInt(form.preco, 10);
+            if (isNaN(precoNumerico)) {
+                Alert.alert('Erro', 'O preço deve ser um número válido.');
+                return;
             }
 
             await db.runAsync(
-                'INSERT INTO livros (titulo, autor, genero, telefone) VALUES (?, ?, ?, ?)',
-                [form.firstName, form.lastName, form.email, form.phone]
+                'INSERT INTO livros (titulo, autor, genero, preco) VALUES (?, ?, ?, ?)',
+                [form.titulo, form.autor, form.genero, precoNumerico]
             );
 
             Alert.alert('Sucesso', 'Livro adicionado!');
+            
             setForm({
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: ''
+                titulo: '',
+                autor: '',
+                genero: '',
+                preco: ''
             });
         } catch (error) {
             console.error(error);
@@ -42,27 +51,27 @@ const UserForm = () => {
             <TextInput
                 style={styles.input}
                 placeholder="Título do Livro"
-                value={form.firstName}
-                onChangeText={(text) => setForm({ ...form, firstName: text })}
+                value={form.titulo}
+                onChangeText={(text) => setForm({ ...form, titulo: text })}
             />
             <TextInput
                 style={styles.input}
                 placeholder="Autor"
-                value={form.lastName}
-                onChangeText={(text) => setForm({ ...form, lastName: text })}
+                value={form.autor}
+                onChangeText={(text) => setForm({ ...form, autor: text })}
             />
             <TextInput
                 style={styles.input}
                 placeholder="Gênero"
-                value={form.email}
-                onChangeText={(text) => setForm({ ...form, email: text })}
+                value={form.genero}
+                onChangeText={(text) => setForm({ ...form, genero: text })}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Telefone para contato (opcional)"
-                value={form.phone}
-                onChangeText={(text) => setForm({ ...form, phone: text })}
-                keyboardType="phone-pad"
+                placeholder="Preço (ex: 29)"
+                value={form.preco}
+                onChangeText={(text) => setForm({ ...form, preco: text })}
+                keyboardType="numeric"
             />
             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonText}>Adicionar Livro</Text>

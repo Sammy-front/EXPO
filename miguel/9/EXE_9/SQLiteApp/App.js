@@ -19,7 +19,7 @@ export default function App() {
             titulo TEXT NOT NULL,
             autor TEXT NOT NULL,
             genero TEXT NOT NULL,
-            telefone TEXT
+            preco decimal(10,2) not null 
           );
           PRAGMA journal_mode=WAL;
         `);
